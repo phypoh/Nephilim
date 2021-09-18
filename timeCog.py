@@ -52,16 +52,17 @@ class timeCog(commands.Cog):
     @commands.command()
     async def show(self, ctx):
         if len(self.msglist) == 0:
-            await
+            await ctx.send("There are no reminders set!")
 
-        output = "List of reminders:\n"
-        for i in range(len(self.msglist)):
-            output += "{}) ".format(i+1)
-            output += self.msglist[i]
-            output += " ("
-            output += self.timelist[i]
-            output += ")\n"
-        await ctx.send(output)
+        else:
+            output = "List of reminders:\n"
+            for i in range(len(self.msglist)):
+                output += "{}) ".format(i+1)
+                output += self.msglist[i]
+                output += " ("
+                output += self.timelist[i]
+                output += ")\n"
+            await ctx.send(output)
 
     @commands.command()
     async def remove(self, ctx, *, num:int):
