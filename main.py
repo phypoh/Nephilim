@@ -64,7 +64,7 @@ async def _unload(ctx):
     except Exception as e:
         await ctx.send('ERROR: {} - {}'.format(type(e).__name__, e))
 
-@client.event
+@bot.event
 async def on_command_error(ctx,error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Please pass in all required arguments')
