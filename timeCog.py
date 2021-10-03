@@ -10,11 +10,12 @@ class timeCog(commands.Cog):
 
     @commands.command()
     async def test(self, ctx):
+        """Check if the time cog is loaded."""
         await ctx.send("Testing, testing. Cog is working!")
 
     @commands.command()
     async def remind(self, ctx, *, message:str):
-        'Set a reminder! Type !remind <X> <minutes/hours> <message> to remind yourself!'
+        """Set a reminder: !remind <X> <minutes/hours> <message>"""
         try:
             [num, period, msg] = message.split(' ', 2)
             num = int(num)
@@ -51,6 +52,7 @@ class timeCog(commands.Cog):
 
     @commands.command()
     async def show(self, ctx):
+        """Show reminders set so far"""
         if len(self.msglist) == 0:
             await ctx.send("There are no reminders set!")
 
@@ -66,6 +68,7 @@ class timeCog(commands.Cog):
 
     @commands.command()
     async def remove(self, ctx, *, num:int):
+        """Remove a reminder from the !show list. !remove <number>"""
         output = "The following reminder has been removed: \n" + self.msglist[num+1]
         del self.msglist[num+1]
         del self.timelist[num + 1]

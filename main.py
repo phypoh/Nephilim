@@ -29,7 +29,8 @@ async def on_ready():
     print('------')
 
 @bot.command()
-async def hello(ctx):
+async def hi(ctx):
+    """Say hi to Nephie!"""
     await ctx.send("Hello, I'm Nephilim! My creator likes to call me Nephie.")
 
 @bot.command(name='reload', hidden=True)
