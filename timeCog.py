@@ -70,8 +70,8 @@ class timeCog(commands.Cog):
     async def remove(self, ctx, *, num:int):
         """Remove a reminder from the !show list. !remove <number>"""
         output = "The following reminder has been removed: \n" + self.msglist[num+1]
-        del self.msglist[num+1]
-        del self.timelist[num + 1]
+        del self.msglist[num-1]
+        del self.timelist[num-1]
         await ctx.send(output)
 
 
