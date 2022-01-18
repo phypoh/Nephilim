@@ -44,10 +44,12 @@ class timeCog(commands.Cog):
 
     async def recurr(self, ctx, seconds, msg):
         if msg in self.msglist:
-            await asyncio.sleep(seconds)
+        
             embedVar = discord.Embed(title=msg, color=0x00ff00)
             await ctx.send(embed=embedVar)
             # await ctx.send(msg)
+            await asyncio.sleep(seconds)
+
             await self.recurr(ctx, seconds, msg)
 
     @commands.command()
